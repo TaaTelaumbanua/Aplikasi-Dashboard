@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cemilan Makaroni Dengan Berbagai Varian Rasa</title>
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid fixed-top">
+        <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3">
+                        <i class="fas fa-map-marker-alt me-2 text-secondary"></i>
+                        <a href="#" class="text-white">123 Street, New York</a>
+                    </small>
+                    <small class="me-3">
+                        <i class="fas fa-envelope me-2 text-secondary"></i>
+                        <a href="#" class="text-white">Email.Taa@gmail.com</a>
+                    </small>
+                </div>
+                <div class="top-link pe-2">
+                    <a href="#" class="text-white"><small>Privacy Policy</small></a>
+                    <span class="text-white mx-2">/</span>
+                    <a href="#" class="text-white"><small>Terms of Use</small></a>
+                    <span class="text-white mx-2">/</span>
+                    <a href="#" class="text-white"><small>Sales and Refunds</small></a>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="text-primary display-6">Hot Roni</h1>
+                </a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <a href="/" class="nav-item nav-link">Daftar Product</a>
+                        <a href="/detail-product" class="nav-item nav-link">Detail Product</a>
+                        <a href="/chackout" class="nav-item nav-link">Checkout</a>
+                        <a href="/dashboard" class="nav-item nav-link">Dashboard</a>
+                        <a href="/laporan-penjualan" class="nav-item nav-link">Laporan Penjualan</a>
+                        <a href="/stok-produk" class="nav-item nav-link active">Stok Produk</a>
+                    </div>
+                    <div class="d-flex m-3 me-0">
+                        <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <i class="fas fa-search text-primary"></i>
+                        </button>
+                        <a href="#" class="position-relative me-4 my-auto">
+                            <i class="fa fa-shopping-bag fa-2x"></i>
+                            <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                        </a>
+                        <a href="#" class="my-auto">
+                            <i class="fas fa-user fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Modal Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input type="search" class="form-control p-3" placeholder="Keywords" aria-describedby="search-icon-1">
+                        <span id="search-icon-1" class="input-group-text p-3">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Search End -->
+
+    <!-- Single Page Header start -->
+    <div class="container-fluid page-header py-5">
+        <h1 class="text-center text-white display-6">Stok Produk</h1>
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">Laporan Penjualan</a></li>
+            <li class="breadcrumb-item active text-white">Stok Produk</li>
+        </ol>
+    </div>
+    <!-- Single Page Header End -->
+
+<!-- Content Section -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Product Card 1 -->
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="{{url_for('static', filename='img/product-2.jpg')}}" alt="Makaroni Pedas" class="product-img">
+                <h3 class="product-title">Makaroni Bantet</h3>
+                <p class="product-description">Nikmati Makaroni Pedas dengan rasa pedas yang menggigit, cocok untuk cemilan di setiap waktu!</p>
+                <p class="product-price">Rp 10,000</p>
+                <p class="product-stock">Stok: 50</p>
+                <button class="btn-buy">Beli Sekarang</button>
+            </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="{{url_for('static', filename='img/product-6.jpg')}}" alt="Makaroni Original" class="product-img">
+                <h3 class="product-title">Makaroni Original</h3>
+                <p class="product-description">Makaroni Original dengan rasa gurih yang pas untuk menemani hari Anda.</p>
+                <p class="product-price">Rp 10,000</p>
+                <p class="product-stock">Stok: 30</p>
+                <button class="btn-buy">Beli Sekarang</button>
+            </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="{{url_for('static', filename='img/product-3.jpg')}}" alt="Makaroni Keju" class="product-img">
+                <h3 class="product-title">Makaroni Keju</h3>
+                <p class="product-description">Rasakan kelezatan Makaroni Keju yang creamy dan meleleh di mulut.</p>
+                <p class="product-price">Rp 10,000</p>
+                <p class="product-stock">Stok: 40</p>
+                <button class="btn-buy">Beli Sekarang</button>
+            </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="{{url_for('static', filename='img/product-4.jpg')}}" alt="Makaroni Balado" class="product-img">
+                <h3 class="product-title">Makaroni Telur & Keju</h3>
+                <p class="product-description">Makaroni Telur & Keju nikmat, siap memanjakan lidah Anda.</p>
+                <p class="product-price">Rp 10,000</p>
+                <p class="product-stock">Stok: 20</p>
+                <button class="btn-buy">Beli Sekarang</button>
+            </div>
+        </div>
+
+        <!-- Product Card 5 -->
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="{{url_for('static', filename='img/product-5.jpg')}}" alt="Makaroni Pedas Daun Jeruk" class="product-img">
+                <h3 class="product-title">Makaroni Pedas Daun Jeruk</h3>
+                <p class="product-description">Cemilan dengan rasa pedas dan aroma daun jeruk yang khas.</p>
+                <p class="product-price">Rp 10,000</p>
+                <p class="product-stock">Stok: 25</p>
+                <button class="btn-buy">Beli Sekarang</button>
+            </div>
+        </div>
+
+        <!-- Product Card 6 -->
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="{{url_for('static', filename='img/product-1.jpg')}}" alt="Makaroni BBQ" class="product-img">
+                <h3 class="product-title">Makaroni Pedas</h3>
+                <p class="product-description">Makaroni dengan rasa Pedas yang lezat, cocok untuk cemilan santai.</p>
+                <p class="product-price">Rp 10,000</p>
+                <p class="product-stock">Stok: 35</p>
+                <button class="btn-buy">Beli Sekarang</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .page-header {
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .breadcrumb {
+            background: none;
+            padding: 0;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .product-stock {
+            font-size: 1rem;
+            color: #f44336;
+            margin-top: 10px;
+        }
+
+        .btn-buy {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .btn-buy:hover {
+            background-color: #45a049;
+        }
+
+        .breadcrumb-item {
+            color: #555;
+        }
+
+        .breadcrumb-item a {
+            color: #007bff;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            font-weight: 600;
+        }
+    </style>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <h1 class="text-primary mb-0">Makaroni</h1>
+                            <p class="text-secondary mb-0">Cemilan Lezat & Kriuk</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative mx-auto">
+                            <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" placeholder="Your Email">
+                            <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Subscribe Now</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="d-flex justify-content-end pt-3">
+                            <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="text-light mb-3">Mengapa Orang Menyukai kami!</h4>
+                        <p class="mb-4">Makaroninya tetap renyah dan gurih di setiap gigitan! Jadi camilan favorit keluarga sejak pertama kali mencoba. Kami populer di kalangan pecinta camilan sejak hadir dengan berbagai varian rasa yang bikin nagih.</p>
+                        <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex flex-column text-start footer-item">
+                        <h4 class="text-light mb-3">Shop Info</h4>
+                        <a class="btn-link" href="">About Us</a>
+                        <a class="btn-link" href="">Contact Us</a>
+                        <a class="btn-link" href="">Privacy Policy</a>
+                        <a class="btn-link" href="">Terms & Condition</a>
+                        <a class="btn-link" href="">Return Policy</a>
+                        <a class="btn-link" href="">FAQs & Help</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex flex-column text-start footer-item">
+                        <h4 class="text-light mb-3">Account</h4>
+                        <a class="btn-link" href="">My Account</a>
+                        <a class="btn-link" href="">Shop details</a>
+                        <a class="btn-link" href="">Shopping Cart</a>
+                        <a class="btn-link" href="">Wishlist</a>
+                        <a class="btn-link" href="">Order History</a>
+                        <a class="btn-link" href="">International Orders</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-item">
+                        <h4 class="text-light mb-3">Contact</h4>
+                        <p>Address: Rancamanyar</p>
+                        <p>Email:Taa@gmail.com</p>
+                        <p>Phone: +62 812 2760 0594</p>
+                        <p>Payment Accepted</p>
+                        <img src="{{url_for('static', filename = 'img/payment.png') }}" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+</body>
+
+</html>
