@@ -1,3 +1,6 @@
+Link Deployment https://aplikasidashboard.vercel.app/
+
+
 Halaman Daftar Product
 ![Screenshot_23-1-2025_151141_localhost](https://github.com/user-attachments/assets/8e45a31e-82b1-4798-8f4a-8debd4c57962)
 Halaman Detail Product
